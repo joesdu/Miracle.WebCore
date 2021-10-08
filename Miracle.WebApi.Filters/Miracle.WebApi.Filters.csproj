@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/joesdu/Miracle.WebApi</RepositoryUrl>
+	<Description>use for .Net WebApi. include:
+1.process to standard format result like {statusCode:200,msg:"success",data:"anydatas"}
+2.deal with exception to standard result too like {statusCode:500,msg:'object reference of null..etc',data:null}</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+</Project>

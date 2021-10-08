@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/joesdu/Miracle.WebApi</RepositoryUrl>
+	<Description>TextJsonConvert,for use System.Text.Json,like "2017" from front-end to back-end int property "Year"</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
