@@ -23,6 +23,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint($"{(string.IsNullOrWhiteSpace(c.RoutePrefix) ? "." : "..")}/swagger/v1/swagger.json", "example.api v1"));
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "example.api v1"));
 
 app.Run();
