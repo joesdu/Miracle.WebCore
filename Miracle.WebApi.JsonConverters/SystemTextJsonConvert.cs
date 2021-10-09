@@ -42,17 +42,6 @@ namespace Miracle.WebApi.JsonConverters
             public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options) => writer.WriteStringValue(value.ToString(@"hh\:mm\:ss"));
         }
 
-        [Obsolete("新版.Net不再需要该转换")]
-        public class IntConverter : JsonConverter<int>
-        {
-            public override int Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
-                reader.TokenType == JsonTokenType.Number
-                    ? reader.GetInt32()
-                    : string.IsNullOrEmpty(reader.GetString()) ? default : int.Parse(reader.GetString());
-
-            public override void Write(Utf8JsonWriter writer, int value, JsonSerializerOptions options) => writer.WriteNumberValue(value);
-        }
-
         public class IntNullConverter : JsonConverter<int?>
         {
             public override int? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
@@ -99,19 +88,6 @@ namespace Miracle.WebApi.JsonConverters
                 if (value != null) writer.WriteBooleanValue(value.Value);
                 else writer.WriteNullValue();
             }
-        }
-
-        [Obsolete("新版.Net不再需要该转换,使用该转换或许会收到一个错误.")]
-        public class StringConverter : JsonConverter<string>
-        {
-            public override string? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
-                reader.TokenType == JsonTokenType.String
-                    ? reader.GetString()
-                    : reader.TokenType == JsonTokenType.Number
-                    ? reader.GetDouble().ToString()
-                    : reader.TokenType == JsonTokenType.Null ? null : reader.GetString();
-
-            public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options) => writer.WriteStringValue(value);
         }
     }
 }

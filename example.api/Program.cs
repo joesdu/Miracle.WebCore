@@ -5,8 +5,11 @@ using Miracle.WebApi.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJsonOptions(c => c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeConverter()));
+builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJsonOptions(c =>
+{
+    c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeConverter());
+    c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeNullConverter());
+});
 builder.Services.AddSwaggerGen(c => c.SwaggerDoc("v1", new() { Title = "example.api", Version = "v1" }));
 
 var app = builder.Build();

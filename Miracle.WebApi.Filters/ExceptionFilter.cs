@@ -4,7 +4,7 @@ using System.Net;
 
 namespace Miracle.WebApi.Filters
 {
-    internal class ExceptionFilter : ExceptionFilterAttribute
+    public class ExceptionFilter : ExceptionFilterAttribute
     {
         public override void OnException(ExceptionContext context)
         {
