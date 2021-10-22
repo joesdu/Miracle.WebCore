@@ -20,8 +20,7 @@ builder.Services.AddControllers(c =>
 
 # Miracle.WebApi.JsonConverters 使用?
 
-* 该库目前补充的Converter有如下:
-DecimalConverter, DecimalNullConverter, DateTimeConverter, DateTimeNullConverter, TimeSpanJsonConvert, IntNullConverter, BoolConverter, BoolNullConverter
+* 该库目前补充的Converter有:DecimalNullConverter, DateTimeConverter, DateTimeNullConverter, TimeSpanJsonConvert, BoolNullConverter
 
 * 使用 Nuget 安装 Miracle.WebApi.JsonConverters
 * 然后在上述 Program.cs 中添加如下内容
@@ -71,6 +70,7 @@ using Miracle.WebApi.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors(c => c.AddPolicy("AllowedHosts", c => c.WithOrigins(builder.Configuration.GetValue<string>("AllowedHosts").Split(",")).AllowAnyMethod().AllowAnyHeader()));
 builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJsonOptions(c =>
 {
     c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeConverter());
@@ -85,6 +85,8 @@ if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
 app.UseGlobalException();
 app.UseResponseTime();
+app.UseCors("AllowedHosts");
+
 app.UseAuthorization();
 
 app.MapControllers();
