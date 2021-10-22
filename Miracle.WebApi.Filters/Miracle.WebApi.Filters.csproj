@@ -7,9 +7,6 @@
     <Nullable>enable</Nullable>
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/joesdu/Miracle.WebApi</RepositoryUrl>
-	<Description>use for .Net WebApi. include:
-1.process to standard format result like {statusCode:200,msg:"success",data:"anydatas"}
-2.deal with exception to standard result too like {statusCode:500,msg:'object reference of null..etc',data:null}</Description>
 	<Version>1.0.1</Version>
   </PropertyGroup>
 

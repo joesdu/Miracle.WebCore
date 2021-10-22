@@ -7,7 +7,6 @@
     <Nullable>enable</Nullable>
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/joesdu/Miracle.WebApi</RepositoryUrl>
-	<Description>全局异常中间件,API响应时间记录中间件</Description>
   </PropertyGroup>
 
   <ItemGroup>

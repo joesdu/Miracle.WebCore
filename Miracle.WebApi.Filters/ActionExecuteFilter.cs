@@ -15,7 +15,7 @@ namespace Miracle.WebApi.Filters
                 if (context.Result is ObjectResult result)
                 {
                     if (result.Value is null) context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });
-                    else if (result.Value.GetType().IsSubclassOf(typeof(System.IO.Stream))) { }
+                    else if (result.Value.GetType().IsSubclassOf(typeof(Stream))) { }
                     else context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });
                 }
                 else if (context.Result is EmptyResult)

@@ -7,8 +7,7 @@
     <Nullable>enable</Nullable>
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/joesdu/Miracle.WebApi</RepositoryUrl>
-	<Description>TextJsonConvert,for use System.Text.Json,like "2017" from front-end to back-end int property "Year"</Description>
-	<Version>1.0.2</Version>
+	<Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
