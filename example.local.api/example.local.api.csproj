@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Miracle.WebApi.Filters\Miracle.WebApi.Filters.csproj" />
+    <ProjectReference Include="..\Miracle.WebApi.JsonConverters\Miracle.WebApi.JsonConverters.csproj" />
     <ProjectReference Include="..\Miracle.WebApi.Middlewares\Miracle.WebApi.Middlewares.csproj" />
   </ItemGroup>
 
