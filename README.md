@@ -20,7 +20,7 @@ builder.Services.AddControllers(c =>
 
 # Miracle.WebApi.JsonConverters 使用?
 
-* 该库目前补充的Converter有: DateTimeConverter, DateTimeNullConverter, TimeSpanJsonConvert, TimeOnly, DateOnly
+* 该库目前补充的Converter有: DateTimeConverter, DateTimeNullConverter, TimeSpanJsonConverter, TimeOnly, DateOnly
 * 其中TimeOnly和DateOnly仅支持.Net API内部使用,传入和传出Json仅支持固定格式字符串
 * 如: **`DateOnly👉"2021-11-11"`**,**`TimeOnly👉"23:59:25"`**
 
