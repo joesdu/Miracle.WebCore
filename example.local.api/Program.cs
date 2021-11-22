@@ -12,9 +12,7 @@ builder.Services.AddSwaggerGen(c => c.SwaggerDoc("v1", new() { Title = "example.
 builder.Services.AddControllers(c=>c.Filters.Add<ActionExecuteFilter>()).AddJsonOptions(c =>
 {
     c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.TimeOnlyJsonConverter());
-    //c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.TimeOnlyNullableConverter());
     c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateOnlyJsonConverter());
-    //c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateOnlyNullableConverter());
 });
 
 var app = builder.Build();
