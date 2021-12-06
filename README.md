@@ -54,8 +54,7 @@ app.UseResponseTime(); // 全局Action执行时间
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "example.api v1"));
+app.UseSwagger().UseSwaggerUI();
 
 app.Run();
 ```
@@ -92,8 +91,7 @@ app.UseCors("AllowedHosts");
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "example.api v1"));
+app.UseSwagger().UseSwaggerUI();
 
 app.Run();
 ```
