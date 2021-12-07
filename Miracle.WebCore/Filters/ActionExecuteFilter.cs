@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
-namespace Miracle.WebApi.Filters;
+namespace Miracle.WebCore;
 public class ActionExecuteFilter : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context) => base.OnActionExecuting(context);

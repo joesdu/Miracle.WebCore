@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Text.Json;
 
-namespace Miracle.WebApi.Middlewares;
+namespace Miracle.WebCore;
 public class ExceptionMiddleware
 {
     private readonly RequestDelegate next;

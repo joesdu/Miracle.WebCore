@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 
-namespace Miracle.WebApi.Middlewares;
+namespace Miracle.WebCore;
 /// <summary>
 /// 全局API耗时监控中间件
 /// </summary>

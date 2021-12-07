@@ -1,11 +1,11 @@
-# Miracle.WebApi
+# Miracle.WebCore
 一些.Net 6的WebApi常用中间件和一些Filter,以及部分数据类型到Json的转换
 
-# Miracle.WebApi.Filters 使用?
+# Miracle.WebCore Filter使用?
 
 目前支持异常处理和返回数据格式化
 
-* 使用 Nuget 安装 Miracle.WebApi.Filters
+* 使用 Nuget 安装 Miracle.WebCore
 * 然后在 Program.cs 中添加如下内容
 
 * Net 6 +
@@ -18,13 +18,13 @@ builder.Services.AddControllers(c =>
 });
 ```
 
-# Miracle.WebApi.JsonConverters 使用?
+# Miracle.WebCore JsonConverter使用?
 
 * 该库目前补充的Converter有: DateTimeConverter, DateTimeNullConverter, TimeSpanJsonConverter, TimeOnly, DateOnly
 * 其中TimeOnly和DateOnly仅支持.Net API内部使用,传入和传出Json仅支持固定格式字符串
-* 如: **`DateOnly👉"2021-11-11"`**,**`TimeOnly👉"23:59:25"`**
+* 如: **`DateOnly👉"2021-11-11"`**, **`TimeOnly👉"23:59:25"`**
 
-* 使用 Nuget 安装 Miracle.WebApi.JsonConverters
+* 使用 Nuget 安装 Miracle.WebCore
 * 然后在上述 Program.cs 中添加如下内容
 
 * .Net 6 +
@@ -37,11 +37,11 @@ builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJs
 });
 ```
 
-# Miracle.WebApi.Middlewares 使用?
+# Miracle.WebCore 中间件使用?
 
 目前支持全局异常和全局API执行时间中间件
 
-* 使用 Nuget 安装 # Miracle.WebApi.Middlewares
+* 使用 Nuget 安装 # Miracle.WebCore
 * 然后在 Program.cs 中添加如下内容
 
 * .Net 6 +
@@ -65,9 +65,7 @@ app.Run();
 * Program.cs 文件
 
 ```csharp
-using Miracle.WebApi.Filters;
-using Miracle.WebApi.JsonConverters;
-using Miracle.WebApi.Middlewares;
+using Miracle.WebCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

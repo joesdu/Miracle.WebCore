@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Miracle.WebApi.JsonConverters;
+namespace Miracle.WebCore;
 public class SystemTextJsonConvert
 {
     public class DateTimeConverter : JsonConverter<DateTime>
