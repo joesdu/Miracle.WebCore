@@ -5,21 +5,23 @@ using System.Net;
 namespace Miracle.WebCore;
 public class ActionExecuteFilter : ActionFilterAttribute
 {
-    public override void OnActionExecuting(ActionExecutingContext context) => base.OnActionExecuting(context);
-
     public override void OnActionExecuted(ActionExecutedContext context)
     {
         if (context.Exception is null)
         {
-            if (context.Result is ObjectResult result)
+            switch (context.Result)
             {
-                if (result.Value is null) context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });
-                else if (result.Value.GetType().IsSubclassOf(typeof(Stream))) { }
-                else context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });
-            }
-            else if (context.Result is EmptyResult)
-            {
-                context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = default(object) });
+                case ObjectResult { Value: null } result:
+                    context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });
+                    break;
+                case ObjectResult result when result.Value.GetType().IsSubclassOf(typeof(Stream)):
+                    break;
+                case ObjectResult result:
+                    context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });
+                    break;
+                case EmptyResult:
+                    context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = default(object) });
+                    break;
             }
         }
         base.OnActionExecuted(context);
