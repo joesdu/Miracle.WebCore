@@ -29,7 +29,7 @@ public class ExceptionMiddleware
             Data = default(object)
         },
         typeof(object),
-        new JsonSerializerOptions()
+        new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,

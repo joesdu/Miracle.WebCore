@@ -11,7 +11,7 @@ public class ResponseTimeMiddleware
     private const string RESPONSE_HEADER_RESPONSE_TIME = "Miracle-Response-Time";
     private readonly RequestDelegate next;
     public ResponseTimeMiddleware(RequestDelegate next) => this.next = next;
-    public async Task InvokeAsync(HttpContext context)
+    public async Task Invoke(HttpContext context)
     {
         var watch = new Stopwatch();
         watch.Start();
