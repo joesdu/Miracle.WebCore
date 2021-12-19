@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 namespace example.local.api.Controllers;
-[Route("[controller]")]
-[ApiController]
+
+[Route("[controller]"), ApiController]
 public class NewTypeController : ControllerBase
 {
     [HttpGet]
