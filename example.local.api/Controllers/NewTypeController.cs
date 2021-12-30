@@ -17,11 +17,16 @@ public class NewTypeController : ControllerBase
     {
         Date = DateOnly.Parse(@new.Date!).AddDays(1),
         Time = TimeOnly.Parse(@new.Time!).AddHours(-1),
+        DateTime = DateTime.Parse(@new.DateTime).AddYears(1)
     };
+
+    [HttpGet("Error")]
+    public void Error() => throw new("Get an error");
 }
 
 public class NewType
 {
     public string? Time { get; set; }
     public string? Date { get; set; }
+    public string DateTime { get; set; } = "1994-05-08";
 }
