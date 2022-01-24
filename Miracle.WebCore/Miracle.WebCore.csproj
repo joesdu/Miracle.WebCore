@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Version>1.0.4</Version>
+		<Version>1.0.5</Version>
 		<Authors>joesdu</Authors>
 		<RepositoryUrl>https://github.com/joesdu/Miracle.WebCore</RepositoryUrl>
 		<PackageProjectUrl>https://www.nuget.org/packages/Miracle.WebCore/</PackageProjectUrl>
