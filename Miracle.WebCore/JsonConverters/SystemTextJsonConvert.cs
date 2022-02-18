@@ -5,7 +5,7 @@ namespace Miracle.WebCore;
 public class SystemTextJsonConvert
 {
     private const string DateFormat = @"yyyy-MM-dd";
-    private const string TimeFormat = @"HH:mm:ss";
+    private const string TimeFormat = @"HH:mm:ss.fff";
     private const string DateTimeFormat = $"{DateFormat} {TimeFormat}";
 
     public class DateTimeConverter : JsonConverter<DateTime>
@@ -32,12 +32,6 @@ public class SystemTextJsonConvert
 
         public override void Write(Utf8JsonWriter writer, TimeOnly value, JsonSerializerOptions options) => writer.WriteStringValue(value.ToString(TimeFormat));
     }
-    public class DateOnlyJsonConverter : JsonConverter<DateOnly>
-    {
-        public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => DateOnly.Parse(reader.GetString()!);
-
-        public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options) => writer.WriteStringValue(value.ToString(DateFormat));
-    }
     public class TimeOnlyNullJsonConverter : JsonConverter<TimeOnly?>
     {
         public override TimeOnly? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -46,6 +40,12 @@ public class SystemTextJsonConvert
         }
 
         public override void Write(Utf8JsonWriter writer, TimeOnly? value, JsonSerializerOptions options) => writer.WriteStringValue(value?.ToString(TimeFormat));
+    }
+    public class DateOnlyJsonConverter : JsonConverter<DateOnly>
+    {
+        public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => DateOnly.Parse(reader.GetString()!);
+
+        public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options) => writer.WriteStringValue(value.ToString(DateFormat));
     }
     public class DateOnlyNullJsonConverter : JsonConverter<DateOnly?>
     {
