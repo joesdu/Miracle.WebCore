@@ -22,7 +22,7 @@ builder.Services.AddControllers(c =>
 
 * 该库目前补充的Converter有: DateTimeConverter, DateTimeNullConverter, TimeSpanJsonConverter, TimeOnly, DateOnly
 * 其中TimeOnly和DateOnly仅支持.Net API内部使用,传入和传出Json仅支持固定格式字符串
-* 如: **`DateOnly👉"2021-11-11"`**, **`TimeOnly👉"23:59:25"`**
+* 如: **`DateOnly👉"2021-11-11"`**, **`TimeOnly👉"23:59:25.123"`**
 
 * 使用 Nuget 安装 Miracle.WebCore
 * 然后在上述 Program.cs 中添加如下内容
@@ -30,7 +30,11 @@ builder.Services.AddControllers(c =>
 * .Net 6 +
 ```csharp
 // Add services to the container.
-builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJsonOptions(c =>
+builder.Services.AddControllers(c =>
+{
+    c.Filters.Add<ExceptionFilter>(); // 异常处理Filter
+    c.Filters.Add<ActionExecuteFilter>(); // 返回数据格式化Filter
+}).AddJsonOptions(c =>
 {
     c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeConverter());
     c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeNullConverter());
@@ -39,7 +43,7 @@ builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJs
 
 # Miracle.WebCore 中间件使用?
 
-目前支持全局异常和全局API执行时间中间件
+目前支持全局API执行时间中间件
 
 * 使用 Nuget 安装 # Miracle.WebCore
 * 然后在 Program.cs 中添加如下内容
@@ -49,7 +53,6 @@ builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJs
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-app.UseGlobalException(); // 全局异常中间件
 app.UseResponseTime(); // 全局Action执行时间
 app.UseAuthorization();
 
@@ -70,7 +73,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddCors(c => c.AddPolicy("AllowedHosts", c => c.WithOrigins(builder.Configuration.GetValue<string>("AllowedHosts").Split(",")).AllowAnyMethod().AllowAnyHeader()));
-builder.Services.AddControllers(c => c.Filters.Add<ActionExecuteFilter>()).AddJsonOptions(c =>
+builder.Services.AddControllers(c =>
+{
+    c.Filters.Add<ExceptionFilter>(); // 异常处理Filter
+    c.Filters.Add<ActionExecuteFilter>(); // 返回数据格式化Filter
+}).AddJsonOptions(c =>
 {
     c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeConverter());
     c.JsonSerializerOptions.Converters.Add(new SystemTextJsonConvert.DateTimeNullConverter());
@@ -82,7 +89,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-app.UseGlobalException();
 app.UseResponseTime();
 app.UseCors("AllowedHosts");
 
