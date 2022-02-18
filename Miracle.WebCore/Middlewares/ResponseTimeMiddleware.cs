@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Miracle.WebCore;
 /// <summary>
-/// 全局API耗时监控中间件
+/// API耗时监控中间件
 /// </summary>
 public class ResponseTimeMiddleware
 {
