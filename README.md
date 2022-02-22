@@ -53,7 +53,9 @@ builder.Services.AddControllers(c =>
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-app.UseResponseTime(); // 全局Action执行时间
+// 过时
+// app.UseResponseTime(); // 全局Action执行时间
+app.UseMiracleResponseTime(); // 全局Action执行时间
 app.UseAuthorization();
 
 app.MapControllers();
@@ -89,7 +91,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-app.UseResponseTime();
+app.UseMiracleResponseTime();
 app.UseCors("AllowedHosts");
 
 app.UseAuthorization();
@@ -122,5 +124,5 @@ app.Run();
 ```
 * Response headers
 ```
-miracle-response-time: 31 ms 
+miracle-response-time: 5 ms 
 ```
