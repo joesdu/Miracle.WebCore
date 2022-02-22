@@ -4,9 +4,9 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Version>1.1.0</Version>
+		<Version>1.1.1</Version>
 		<Authors>joesdu</Authors>
-		<RepositoryUrl>https://github.com/joesdu/Miracle.WebCore</RepositoryUrl>
+		<RepositoryUrl>https://github.com/GardeningX/Miracle.WebCore</RepositoryUrl>
 		<PackageProjectUrl>https://www.nuget.org/packages/Miracle.WebCore/</PackageProjectUrl>
 		<Description>请示的实现统一接口返回,全局异常以及接口执行消耗时间等功能</Description>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
