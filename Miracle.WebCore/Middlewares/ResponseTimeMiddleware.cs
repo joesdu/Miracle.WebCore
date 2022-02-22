@@ -29,5 +29,7 @@ public class ResponseTimeMiddleware
 /// </summary>
 public static class ResponseTimeMiddlewareExtensions
 {
+    [Obsolete("请使用UseMiracleResponseTime注册管道,UseResponseTime在未来的版本中将会删除")]
     public static IApplicationBuilder UseResponseTime(this IApplicationBuilder builder) => builder.UseMiddleware<ResponseTimeMiddleware>();
+    public static IApplicationBuilder UseMiracleResponseTime(this IApplicationBuilder builder) => builder.UseMiddleware<ResponseTimeMiddleware>();
 }

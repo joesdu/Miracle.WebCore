@@ -22,6 +22,9 @@ public class NewTypeController : ControllerBase
 
     [HttpGet("Error")]
     public void Error() => throw new("Get an error");
+
+    [HttpGet("Null")]
+    public object? Null() => null;
 }
 
 public class NewType

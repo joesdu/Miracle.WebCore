@@ -11,10 +11,7 @@ public class ActionExecuteFilter : ActionFilterAttribute
         {
             switch (context.Result)
             {
-                case ObjectResult { Value: null } result:
-                    context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });
-                    break;
-                case ObjectResult result when result.Value.GetType().IsSubclassOf(typeof(Stream)):
+                case ObjectResult { Value: not null } result when result.Value.GetType().IsSubclassOf(typeof(Stream)):
                     break;
                 case ObjectResult result:
                     context.Result = new ObjectResult(new { StatusCode = HttpStatusCode.OK, Msg = "success", Data = result.Value });

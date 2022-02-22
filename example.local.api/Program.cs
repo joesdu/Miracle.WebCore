@@ -29,7 +29,7 @@ if (app.Environment.IsDevelopment()) _ = app.UseDeveloperExceptionPage();
 
 //app.UseGlobalException();
 
-app.UseResponseTime();
+app.UseMiracleResponseTime();
 app.UseSwagger().UseSwaggerUI();
 
 app.MapControllers();
