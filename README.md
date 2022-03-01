@@ -22,7 +22,7 @@ builder.Services.AddControllers(c =>
 
 * 该库目前补充的Converter有: DateTimeConverter, DateTimeNullConverter, TimeSpanJsonConverter, TimeOnly, DateOnly
 * 其中TimeOnly和DateOnly仅支持.Net API内部使用,传入和传出Json仅支持固定格式字符串
-* 如: **`DateOnly👉"2021-11-11"`**, **`TimeOnly👉"23:59:25.123"`**
+* 如: **`DateOnly👉"2021-11-11"`**, **`TimeOnly👉"23:59:25"`**
 
 * 使用 Nuget 安装 Miracle.WebCore
 * 然后在上述 Program.cs 中添加如下内容
