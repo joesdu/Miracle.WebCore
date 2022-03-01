@@ -4,8 +4,8 @@ using System.Text.Json.Serialization;
 namespace Miracle.WebCore;
 public class SystemTextJsonConvert
 {
-    private const string DateFormat = @"yyyy-MM-dd";
-    private const string TimeFormat = @"HH:mm:ss.fff";
+    private const string DateFormat = "yyyy-MM-dd";
+    private const string TimeFormat = "HH:mm:ss";
     private const string DateTimeFormat = $"{DateFormat} {TimeFormat}";
 
     public class DateTimeConverter : JsonConverter<DateTime>
